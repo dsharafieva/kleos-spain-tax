@@ -1,0 +1,1075 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Hiring a contractor in Spain — where the money actually goes | Kleos</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+<style>
+  /* ============================================================
+     KLEOS DESIGN TOKENS  (sampled from brand system)
+     ============================================================ */
+  :root{
+    --orange:#F66200;      /* signature brand / IRPF / accents        */
+    --ink:#141414;         /* text, never pure black                  */
+    --green:#009423;       /* action buttons, net-in-pocket, checks   */
+    --green-deep:#024616;  /* dark full-bleed sections                */
+    --teal:#0AC2C8;        /* minor icon accent                       */
+    --grey:#F5F5F5;        /* quiet surfaces, secondary buttons       */
+    --grey-line:#E4E4E4;
+    --grey-text:#6B6B6B;
+    --white:#FFFFFF;
+    --radius:22px;
+    --radius-sm:12px;
+    --maxw:1160px;
+    --font:'Archivo',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:var(--font);
+    color:var(--ink);
+    background:var(--white);
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+    font-feature-settings:"ss01","cv01";
+  }
+  h1,h2,h3{letter-spacing:-0.03em;line-height:1.02;font-weight:800}
+  section{padding:96px 24px}
+  .wrap{max-width:var(--maxw);margin:0 auto}
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:9px;
+    font-size:.8rem;font-weight:600;color:var(--grey-text);
+    text-transform:none;letter-spacing:0;margin-bottom:26px;
+  }
+  .eyebrow::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--green)}
+  a{color:inherit;text-decoration:none}
+  .hidden{display:none !important}
+
+  /* ---------- BUTTONS: arrow-segment style ---------- */
+  .btn{
+    display:inline-flex;align-items:stretch;border:none;cursor:pointer;
+    font-family:var(--font);font-weight:600;font-size:.98rem;
+    border-radius:11px;overflow:hidden;color:var(--white);
+    transition:transform .12s ease,filter .12s ease;
+  }
+  .btn:hover{filter:brightness(1.06)}
+  .btn:active{transform:translateY(1px)}
+  .btn span{padding:14px 20px}
+  .btn i{
+    display:flex;align-items:center;justify-content:center;
+    padding:0 15px;font-style:normal;
+    border-left:1px solid rgba(255,255,255,.22);
+  }
+  .btn-orange{background:var(--orange)}
+  .btn-green{background:var(--green)}
+  .btn-ink{background:var(--ink)}
+  .btn-grey{background:var(--grey);color:var(--ink)}
+  .btn-grey i{border-left-color:rgba(0,0,0,.1)}
+
+  /* ---------- NAV ---------- */
+  header{
+    position:sticky;top:0;z-index:50;background:rgba(255,255,255,.92);
+    backdrop-filter:saturate(160%) blur(10px);
+    border-bottom:1px solid var(--grey-line);
+  }
+  .nav{max-width:var(--maxw);margin:0 auto;display:flex;align-items:center;
+    justify-content:space-between;padding:15px 24px;gap:20px}
+  .logo{font-weight:900;font-size:1.5rem;letter-spacing:-.05em}
+  .logo b{color:var(--orange)}
+  .nav-links{display:flex;gap:26px;font-size:.92rem;font-weight:500}
+  .nav-links a{color:var(--ink);opacity:.78}
+  .nav-links a:hover{opacity:1}
+  .nav-right{display:flex;align-items:center;gap:14px}
+  .lang{display:flex;border:1px solid var(--grey-line);border-radius:9px;overflow:hidden}
+  .lang button{
+    border:none;background:var(--white);cursor:pointer;font-family:var(--font);
+    font-weight:600;font-size:.82rem;padding:7px 12px;color:var(--grey-text);
+  }
+  .lang button.on{background:var(--ink);color:var(--white)}
+
+  /* ---------- HERO ---------- */
+  .hero{padding-top:78px;padding-bottom:64px}
+  .hero h1{font-size:clamp(2.6rem,6vw,4.6rem);font-weight:900;max-width:15ch}
+  .hero h1 .hl{color:var(--orange)}
+  .hero p.lead{font-size:1.18rem;color:#3a3a3a;max-width:52ch;margin:26px 0 34px;line-height:1.45}
+  .hero-cta{display:flex;gap:14px;flex-wrap:wrap}
+
+  .facts{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:64px;
+    border:1px solid var(--grey-line);border-radius:var(--radius);overflow:hidden}
+  .fact{padding:26px 26px}
+  .fact + .fact{border-left:1px solid var(--grey-line)}
+  .fact .n{font-size:1.9rem;font-weight:800;letter-spacing:-.04em}
+  .fact .l{font-size:.82rem;color:var(--grey-text);margin-top:8px;line-height:1.35}
+
+  /* ---------- CALCULATOR SECTION (deep green) ---------- */
+  .calc-sec{background:var(--green-deep);color:var(--white);position:relative;overflow:hidden}
+  .calc-sec h2{font-size:clamp(2rem,4vw,2.9rem);font-weight:900;color:var(--white);max-width:16ch}
+  .calc-sec .sub{color:rgba(255,255,255,.72);max-width:54ch;margin-top:16px;font-size:1.05rem}
+  .coin{position:absolute;border-radius:50%;background:radial-gradient(circle at 35% 30%,#0db83a,#046b1e);
+    box-shadow:inset 0 -6px 12px rgba(0,0,0,.35);opacity:.5}
+  .coin::after{content:"€";position:absolute;inset:0;display:flex;align-items:center;
+    justify-content:center;color:#023e13;font-weight:900;font-size:1.4em}
+
+  .card{
+    position:relative;z-index:2;background:var(--white);color:var(--ink);
+    border-radius:var(--radius);margin-top:44px;padding:30px;
+    box-shadow:0 30px 60px -25px rgba(0,0,0,.45);
+    display:grid;grid-template-columns:1fr 1.05fr;gap:34px;
+  }
+
+  /* regime tabs */
+  .regimes{display:flex;gap:8px;grid-column:1/-1;flex-wrap:wrap}
+  .regime{
+    flex:1;min-width:150px;border:1.5px solid var(--grey-line);background:var(--white);
+    border-radius:12px;padding:12px 14px;cursor:pointer;text-align:left;font-family:var(--font);
+    transition:all .14s ease;
+  }
+  .regime .rt{font-weight:700;font-size:.95rem}
+  .regime .rd{font-size:.76rem;color:var(--grey-text);margin-top:3px;line-height:1.25}
+  .regime.on{background:var(--ink);border-color:var(--ink)}
+  .regime.on .rt{color:var(--white)}
+  .regime.on .rd{color:rgba(255,255,255,.7)}
+
+  .controls{display:flex;flex-direction:column;gap:18px}
+  .segmented{display:flex;background:var(--grey);border-radius:10px;padding:4px;gap:4px}
+  .segmented button{
+    flex:1;border:none;background:transparent;cursor:pointer;font-family:var(--font);
+    font-weight:600;font-size:.85rem;padding:9px 8px;border-radius:7px;color:var(--grey-text);
+  }
+  .segmented button.on{background:var(--white);color:var(--ink);box-shadow:0 1px 3px rgba(0,0,0,.12)}
+
+  .field label{display:block;font-size:.82rem;font-weight:600;margin-bottom:7px}
+  .field .in{display:flex;align-items:center;border:1.5px solid var(--grey-line);border-radius:10px;
+    padding:0 14px;transition:border-color .14s}
+  .field .in:focus-within{border-color:var(--ink)}
+  .field .in span{color:var(--grey-text);font-weight:600}
+  .field input{
+    border:none;outline:none;font-family:var(--font);font-size:1.15rem;font-weight:700;
+    padding:12px 8px;width:100%;background:transparent;color:var(--ink);
+  }
+  .field .hint{font-size:.75rem;color:var(--grey-text);margin-top:6px}
+
+  .region-row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+  .region-row .rl{font-size:.82rem;font-weight:600}
+
+  .toggle{display:flex;align-items:flex-start;gap:11px;cursor:pointer;
+    padding:13px;border:1.5px solid var(--grey-line);border-radius:10px}
+  .toggle input{margin-top:3px;width:17px;height:17px;accent-color:var(--green);cursor:pointer}
+  .toggle .tt{font-size:.86rem;font-weight:600}
+  .toggle .td{font-size:.75rem;color:var(--grey-text);margin-top:2px}
+
+  /* result side */
+  .result{display:flex;flex-direction:column}
+  .bar{display:flex;height:30px;border-radius:8px;overflow:hidden;margin-bottom:12px}
+  .bar div{height:100%;transition:width .5s cubic-bezier(.4,0,.2,1)}
+  .s-net{background:var(--green)}
+  .s-soc{background:var(--green-deep)}
+  .s-tax{background:var(--orange)}
+  .s-exp{background:var(--ink)}
+  .legend{display:flex;flex-wrap:wrap;gap:14px;font-size:.76rem;color:var(--grey-text);margin-bottom:20px}
+  .legend span{display:inline-flex;align-items:center;gap:6px}
+  .dot{width:10px;height:10px;border-radius:3px;display:inline-block}
+
+  .lines{display:flex;flex-direction:column;gap:2px}
+  .line{display:flex;justify-content:space-between;align-items:baseline;
+    padding:11px 0;border-bottom:1px solid var(--grey-line);font-size:.95rem}
+  .line .lv{font-weight:700;font-variant-numeric:tabular-nums}
+  .line.sub .ll{color:var(--grey-text);font-weight:500}
+  .line.sub .lv{color:var(--grey-text);font-weight:600}
+  .line.net{border-bottom:none;padding-top:16px}
+  .line.net .ll{font-weight:800;font-size:1.05rem}
+  .line.net .lv{font-weight:900;font-size:1.5rem;color:var(--green)}
+
+  .totals{background:var(--grey);border-radius:var(--radius-sm);padding:16px 18px;
+    margin-top:16px;display:flex;justify-content:space-between;align-items:center;gap:12px}
+  .totals .tbig{font-size:1.55rem;font-weight:900;letter-spacing:-.03em}
+  .totals .tmini{font-size:.78rem;color:var(--grey-text);margin-top:2px}
+  .totals .eff{text-align:right}
+  .totals .eff .n{font-size:1.55rem;font-weight:900;color:var(--orange)}
+  .assume{font-size:.74rem;color:var(--grey-text);margin-top:16px;line-height:1.45}
+
+  /* ---------- HOW IT WORKS ---------- */
+  .three{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:44px}
+  .tcard{border:1px solid var(--grey-line);border-radius:var(--radius);padding:26px}
+  .tcard .big{font-size:2.6rem;font-weight:900;letter-spacing:-.04em}
+  .tcard.c-irpf .big{color:var(--green)}
+  .tcard.c-soc .big{color:var(--ink)}
+  .tcard.c-iva .big{color:var(--orange)}
+  .tcard h3{font-size:1.15rem;margin:6px 0 10px}
+  .tcard p{font-size:.92rem;color:#3a3a3a;line-height:1.5}
+  .tcard .mini{margin-top:16px;border-top:1px solid var(--grey-line);padding-top:12px}
+  .tcard .mini .r{display:flex;justify-content:space-between;font-size:.82rem;padding:4px 0}
+  .tcard .mini .r span:last-child{font-weight:700}
+
+  /* timeline */
+  .tl-title{font-size:1.35rem;font-weight:800;margin:64px 0 8px}
+  .timeline{margin-top:26px;position:relative;padding-left:8px}
+  .tl{display:grid;grid-template-columns:150px 1fr;gap:22px;padding:18px 0;
+    border-top:1px solid var(--grey-line)}
+  .tl:first-child{border-top:none}
+  .tl .when{font-size:.82rem;color:var(--grey-text);font-weight:600;display:flex;align-items:flex-start;gap:10px}
+  .tl .when::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--orange);
+    margin-top:5px;flex-shrink:0}
+  .tl .what strong{display:block;font-size:1rem;margin-bottom:4px}
+  .tl .what p{font-size:.9rem;color:#3a3a3a;line-height:1.5}
+
+  /* ---------- MISCLASSIFICATION (orange) ---------- */
+  .mis{background:var(--orange);color:var(--white)}
+  .mis h2{font-size:clamp(2rem,4vw,2.9rem);font-weight:900;color:var(--white);max-width:15ch}
+  .mis .sub{color:rgba(255,255,255,.92);max-width:60ch;margin-top:16px;font-size:1.02rem;line-height:1.55}
+  .checklist{background:var(--white);color:var(--ink);border-radius:var(--radius);
+    margin-top:40px;padding:28px 30px;box-shadow:0 30px 60px -30px rgba(0,0,0,.4)}
+  .checklist .ci{font-size:.85rem;color:var(--grey-text);margin-bottom:16px}
+  .check{display:flex;align-items:flex-start;gap:14px;padding:14px 0;
+    border-bottom:1px solid var(--grey-line);cursor:pointer}
+  .check:last-of-type{border-bottom:none}
+  .check .box{width:24px;height:24px;border-radius:50%;border:2px solid var(--grey-line);
+    flex-shrink:0;display:flex;align-items:center;justify-content:center;transition:all .14s}
+  .check .box svg{width:13px;height:13px;opacity:0;transform:scale(.5);transition:all .14s}
+  .check.on .box{background:var(--orange);border-color:var(--orange)}
+  .check.on .box svg{opacity:1;transform:scale(1)}
+  .check .txt{font-size:.95rem;font-weight:500;padding-top:2px}
+  .verdict{margin-top:20px;padding:16px 18px;border-radius:var(--radius-sm);
+    background:var(--grey);font-weight:600;font-size:.95rem;transition:all .2s}
+  .verdict.warn{background:#FFF1E8;color:#B23e00}
+  .verdict.danger{background:#FFE1E1;color:#B00000}
+  .verdict.safe{background:#E7F7EC;color:#046b1e}
+
+  /* ---------- CASES ---------- */
+  .cases{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:44px}
+  .case{background:var(--grey);border-radius:var(--radius);padding:24px;border:1px solid transparent;
+    transition:border-color .14s}
+  .case:hover{border-color:var(--grey-line)}
+  .case .ico{font-size:1.7rem;margin-bottom:12px}
+  .case h3{font-size:1.08rem;margin-bottom:8px}
+  .case p{font-size:.88rem;color:#3a3a3a;line-height:1.5}
+  .tag{display:inline-block;margin-top:14px;font-size:.72rem;font-weight:700;
+    padding:5px 11px;border-radius:20px}
+  .tag.up{background:#E7F7EC;color:var(--green)}
+  .tag.down{background:#FFE1E1;color:#B00000}
+  .tag.flat{background:#EAEAEA;color:var(--grey-text)}
+
+  /* ---------- FAQ ---------- */
+  .faq h2{font-size:clamp(2rem,4vw,2.9rem);font-weight:900}
+  .faq-list{margin-top:36px;border-top:1px solid var(--grey-line)}
+  .qa{border-bottom:1px solid var(--grey-line)}
+  .qa button{width:100%;background:none;border:none;cursor:pointer;font-family:var(--font);
+    display:flex;justify-content:space-between;align-items:center;gap:20px;
+    padding:22px 4px;text-align:left;font-size:1.05rem;font-weight:600;color:var(--ink)}
+  .qa .plus{font-size:1.5rem;font-weight:400;flex-shrink:0;transition:transform .2s}
+  .qa.open .plus{transform:rotate(45deg)}
+  .qa .ans{max-height:0;overflow:hidden;transition:max-height .28s ease}
+  .qa .ans p{padding:0 4px 22px;font-size:.96rem;color:#3a3a3a;line-height:1.6;max-width:75ch}
+
+  /* ---------- CTA + FOOTER ---------- */
+  .cta{background:var(--ink);border-radius:var(--radius);color:var(--white);
+    padding:52px;display:flex;justify-content:space-between;align-items:center;gap:30px;flex-wrap:wrap}
+  .cta h2{font-size:clamp(1.7rem,3.4vw,2.4rem);font-weight:900;color:var(--white);max-width:18ch}
+  footer{padding:44px 24px 60px}
+  .foot{max-width:var(--maxw);margin:0 auto;display:flex;justify-content:space-between;
+    gap:20px;flex-wrap:wrap;align-items:flex-start}
+  .foot .logo{font-size:1.2rem}
+  .disc{font-size:.75rem;color:var(--grey-text);line-height:1.55;max-width:62ch;margin-top:22px}
+  .copy{font-size:.8rem;color:var(--grey-text)}
+
+  /* ---------- RESPONSIVE ---------- */
+  @media(max-width:860px){
+    section{padding:64px 20px}
+    .nav-links{display:none}
+    .facts{grid-template-columns:repeat(2,1fr)}
+    .fact:nth-child(3){border-left:none}
+    .fact:nth-child(3),.fact:nth-child(4){border-top:1px solid var(--grey-line)}
+    .card{grid-template-columns:1fr;gap:24px}
+    .three{grid-template-columns:1fr}
+    .cases{grid-template-columns:1fr}
+    .tl{grid-template-columns:1fr;gap:6px}
+    .cta{padding:34px}
+  }
+  @media(prefers-reduced-motion:reduce){
+    *{transition:none !important;scroll-behavior:auto !important}
+  }
+  :focus-visible{outline:3px solid var(--teal);outline-offset:2px;border-radius:4px}
+</style>
+</head>
+<body>
+
+<!-- ================= NAV ================= -->
+<header>
+  <nav class="nav">
+    <div class="logo">Kle<b>o</b>s</div>
+    <div class="nav-links">
+      <a href="#calc" data-i18n="nav_calc">Calculator</a>
+      <a href="#how" data-i18n="nav_how">How it works</a>
+      <a href="#class" data-i18n="nav_class">Classification</a>
+      <a href="#cases" data-i18n="nav_cases">Special cases</a>
+      <a href="#faq" data-i18n="nav_faq">FAQ</a>
+    </div>
+    <div class="nav-right">
+      <div class="lang">
+        <button id="lang-en" class="on" onclick="setLang('en')">EN</button>
+        <button id="lang-es" onclick="setLang('es')">ES</button>
+      </div>
+      <a class="btn btn-orange" href="#cta"><span data-i18n="nav_demo">Book a demo</span><i>→</i></a>
+    </div>
+  </nav>
+</header>
+
+<!-- ================= HERO ================= -->
+<section class="hero">
+  <div class="wrap">
+    <span class="eyebrow" data-i18n="hero_eyebrow">Spain · Contractor taxation guide · 2026</span>
+    <h1><span data-i18n="hero_h1a">Hiring in Spain?</span><br><span data-i18n="hero_h1b">Here's where the money </span><span class="hl" data-i18n="hero_h1c">actually goes.</span></h1>
+    <p class="lead" data-i18n="hero_lead">Your contractor pays their own taxes — but the rate you agree decides what lands in their pocket. This page shows both of you the full math: every charge, every band, every case that shifts the final number.</p>
+    <div class="hero-cta">
+      <a class="btn btn-green" href="#calc"><span data-i18n="hero_btn1">Run the numbers</span><i>→</i></a>
+      <a class="btn btn-grey" href="#how"><span data-i18n="hero_btn2">Learn the system</span><i>→</i></a>
+    </div>
+
+    <div class="facts">
+      <div class="fact"><div class="n">19–47%</div><div class="l" data-i18n="fact1">IRPF income tax — progressive, state plus your region</div></div>
+      <div class="fact"><div class="n">€80 → €590</div><div class="l" data-i18n="fact2">monthly social security — first-year flat rate up to the top band</div></div>
+      <div class="fact"><div class="n">21%</div><div class="l" data-i18n="fact3">IVA — but reverse-charged on most EU B2B invoices</div></div>
+      <div class="fact"><div class="n">30 Jun</div><div class="l" data-i18n="fact4">annual filing deadline (Declaración de la Renta)</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CALCULATOR ================= -->
+<section class="calc-sec" id="calc">
+  <div class="coin" style="width:70px;height:70px;top:12%;left:6%"></div>
+  <div class="coin" style="width:44px;height:44px;top:30%;right:9%"></div>
+  <div class="coin" style="width:90px;height:90px;bottom:8%;right:4%"></div>
+  <div class="coin" style="width:38px;height:38px;bottom:20%;left:10%"></div>
+  <div class="wrap">
+    <h2 data-i18n="calc_h2">Gross to net. No mystery left.</h2>
+    <p class="sub" data-i18n="calc_sub">Pick the contractor's setup, type the yearly amount you'll pay them, and watch every euro get accounted for.</p>
+
+    <div class="card">
+      <div class="regimes">
+        <button class="regime on" data-regime="flat" onclick="setRegime('flat')">
+          <div class="rt" data-i18n="reg_flat_t">Autónomo · year 1</div>
+          <div class="rd" data-i18n="reg_flat_d">Flat €80/mo social security</div>
+        </button>
+        <button class="regime" data-regime="general" onclick="setRegime('general')">
+          <div class="rt" data-i18n="reg_gen_t">Autónomo · established</div>
+          <div class="rd" data-i18n="reg_gen_d">Income-based cuota bands</div>
+        </button>
+        <button class="regime" data-regime="sl" onclick="setRegime('sl')">
+          <div class="rt" data-i18n="reg_sl_t">SL company</div>
+          <div class="rd" data-i18n="reg_sl_d">Corporate tax + dividends</div>
+        </button>
+      </div>
+
+      <!-- LEFT: inputs -->
+      <div class="controls">
+        <div class="segmented" id="dir-seg">
+          <button class="on" data-dir="gross" onclick="setDir('gross')" data-i18n="dir_gross">I know the invoice</button>
+          <button data-dir="net" onclick="setDir('net')" data-i18n="dir_net">I want a target net</button>
+        </div>
+
+        <div class="field" id="field-gross">
+          <label data-i18n="in_gross">Annual amount you'll invoice / pay (€)</label>
+          <div class="in"><span>€</span><input id="gross" type="text" inputmode="numeric" value="48000" /></div>
+          <div class="hint" id="hint-gross"></div>
+        </div>
+
+        <div class="field hidden" id="field-net">
+          <label data-i18n="in_net">Target annual net for the contractor (€)</label>
+          <div class="in"><span>€</span><input id="net" type="text" inputmode="numeric" value="30000" /></div>
+          <div class="hint" data-i18n="in_net_hint">We'll solve for the invoice amount that leaves this in their pocket.</div>
+        </div>
+
+        <div class="field" id="field-exp">
+          <label data-i18n="in_exp">Deductible business expenses (€ / year)</label>
+          <div class="in"><span>€</span><input id="exp" type="text" inputmode="numeric" value="3000" /></div>
+          <div class="hint" data-i18n="in_exp_hint">Software, gestor, insurance, workspace — must be genuine and invoiced.</div>
+        </div>
+
+        <div class="region-row" id="region-wrap">
+          <span class="rl" data-i18n="in_region">Region (sets IRPF):</span>
+          <div class="segmented" style="flex:1;min-width:200px">
+            <button class="on" data-region="general" onclick="setRegion('general')" data-i18n="region_general">Spain (standard)</button>
+            <button data-region="madrid" onclick="setRegion('madrid')">Madrid</button>
+          </div>
+        </div>
+
+        <label class="toggle" id="toggle-new">
+          <input type="checkbox" id="newco" onchange="calc()" />
+          <div>
+            <div class="tt" data-i18n="tog_new_t">New company (first two profitable years)</div>
+            <div class="td" data-i18n="tog_new_d">Corporate tax drops to a flat 15%.</div>
+          </div>
+        </label>
+      </div>
+
+      <!-- RIGHT: result -->
+      <div class="result">
+        <div class="bar" id="bar">
+          <div class="s-net" style="width:60%"></div>
+          <div class="s-soc" style="width:14%"></div>
+          <div class="s-tax" style="width:18%"></div>
+          <div class="s-exp" style="width:8%"></div>
+        </div>
+        <div class="legend" id="legend"></div>
+        <div class="lines" id="lines"></div>
+        <div class="totals">
+          <div>
+            <div class="tbig" id="permonth">—</div>
+            <div class="tmini" id="permonth-l" data-i18n="per_month">net per month</div>
+          </div>
+          <div class="eff">
+            <div class="n" id="effrate">—</div>
+            <div class="tmini" data-i18n="eff_rate">effective rate</div>
+          </div>
+        </div>
+        <div class="assume" id="assume"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= HOW IT WORKS ================= -->
+<section id="how">
+  <div class="wrap">
+    <span class="eyebrow" data-i18n="how_eyebrow">The system, in three charges</span>
+    <h2 style="font-size:clamp(2rem,4vw,2.9rem)" data-i18n="how_h2">Three charges. One isn't really yours.</h2>
+    <p style="max-width:60ch;margin-top:14px;color:#3a3a3a;font-size:1.05rem" data-i18n="how_sub">Two of these come out of the contractor's earnings. The third — IVA — usually just passes through, especially when the client is a foreign business.</p>
+
+    <div class="three">
+      <div class="tcard c-irpf">
+        <div class="big">19–47%</div>
+        <h3 data-i18n="how_irpf_t">IRPF — income tax</h3>
+        <p data-i18n="how_irpf_p">Progressive tax on net profit after expenses, allowances and the social-security cuota. Half is set by the state, half by the region — so the same income nets differently in Madrid than in Catalonia.</p>
+        <div class="mini">
+          <div class="r"><span data-i18n="how_irpf_r1">First €12,450</span><span>19%</span></div>
+          <div class="r"><span data-i18n="how_irpf_r2">€35,200–€60,000</span><span>37%</span></div>
+          <div class="r"><span data-i18n="how_irpf_r3">Personal allowance</span><span>€5,550</span></div>
+        </div>
+      </div>
+      <div class="tcard c-soc">
+        <div class="big">€80–€590</div>
+        <h3 data-i18n="how_soc_t">Seguridad Social — the cuota</h3>
+        <p data-i18n="how_soc_p">A monthly social-security contribution, not a tax. Since 2023 it scales with real net income across 15 bands. New autónomos pay a flat €80/mo for the first year. It's fully deductible before IRPF.</p>
+        <div class="mini">
+          <div class="r"><span data-i18n="how_soc_r1">First year (flat)</span><span>€80/mo</span></div>
+          <div class="r"><span data-i18n="how_soc_r2">Net under €670/mo</span><span>~€200/mo</span></div>
+          <div class="r"><span data-i18n="how_soc_r3">Net over €6,000/mo</span><span>€590/mo</span></div>
+        </div>
+      </div>
+      <div class="tcard c-iva">
+        <div class="big">21%</div>
+        <h3 data-i18n="how_iva_t">IVA — mostly pass-through</h3>
+        <p data-i18n="how_iva_p">Spain has no small-business exemption: autónomos charge IVA from the first invoice. But on B2B invoices to VAT-registered EU businesses the reverse charge applies — no Spanish IVA is added, so it isn't a real cost to either side.</p>
+        <div class="mini">
+          <div class="r"><span data-i18n="how_iva_r1">Standard rate</span><span>21%</span></div>
+          <div class="r"><span data-i18n="how_iva_r2">EU B2B client</span><span data-i18n="how_iva_r2v">Reverse charge</span></div>
+          <div class="r"><span data-i18n="how_iva_r3">Filed via</span><span>Modelo 303</span></div>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="tl-title" data-i18n="tl_title">A year in the life of a Spanish contractor's taxes</h3>
+    <div class="timeline">
+      <div class="tl">
+        <div class="when" data-i18n="tl1_when">Day 1</div>
+        <div class="what"><strong data-i18n="tl1_t">Register: RETA + Censo (Modelo 036/037)</strong><p data-i18n="tl1_p">Sign up for social security and register the activity with the tax office. Pick a CNAE/IAE code. This can be done online in a few days.</p></div>
+      </div>
+      <div class="tl">
+        <div class="when" data-i18n="tl2_when">Every quarter</div>
+        <div class="what"><strong data-i18n="tl2_t">File Modelo 303 (IVA) and Modelo 130 (IRPF advance)</strong><p data-i18n="tl2_p">VAT return plus a 20% income-tax prepayment on profit. If clients withhold IRPF at source (retención), Modelo 130 is skipped and the retención covers it.</p></div>
+      </div>
+      <div class="tl">
+        <div class="when" data-i18n="tl3_when">By 30 Jun</div>
+        <div class="what"><strong data-i18n="tl3_t">File the annual Declaración de la Renta</strong><p data-i18n="tl3_p">The full income-tax return for the previous year reconciles everything paid across the quarters — either a top-up or a refund.</p></div>
+      </div>
+      <div class="tl">
+        <div class="when" data-i18n="tl4_when">Year-end</div>
+        <div class="what"><strong data-i18n="tl4_t">Social security regularises the cuota</strong><p data-i18n="tl4_p">The TGSS compares the cuota paid against real declared income and adjusts — charging the difference or issuing a refund if the band was wrong.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= MISCLASSIFICATION ================= -->
+<section class="mis" id="class">
+  <div class="wrap">
+    <h2 data-i18n="mis_h2">One contract away from being an employee.</h2>
+    <p class="sub" data-i18n="mis_sub">Spain doesn't read the contract — it reads reality. If the working relationship shows dependencia (taking orders) and ajenidad (bearing none of the risk), the Inspección de Trabajo can rule it a disguised employment — a "falso autónomo" — with back-contributions, penalties and reclassification landing on the company. There's no clean 4-of-7 test: courts weigh all the signals together.</p>
+
+    <div class="checklist">
+      <div class="ci" data-i18n="mis_ci">Check every statement that's true for the arrangement. The more that apply, the more it looks like employment — not a genuine contractor.</div>
+      <div id="checks"></div>
+      <div class="verdict" id="verdict" data-i18n="mis_v0">Tick the boxes above to gauge the reclassification risk.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CASES ================= -->
+<section id="cases">
+  <div class="wrap">
+    <span class="eyebrow" data-i18n="cases_eyebrow">Same rate, different net</span>
+    <h2 style="font-size:clamp(2rem,4vw,2.9rem)" data-i18n="cases_h2">Cases that change the final number</h2>
+    <p style="max-width:60ch;margin-top:14px;color:#3a3a3a;font-size:1.05rem" data-i18n="cases_sub">Two contractors on the same headline rate can take home very different amounts. These are the situations worth knowing before you agree a price.</p>
+
+    <div class="cases">
+      <div class="case">
+        <div class="ico">📍</div>
+        <h3 data-i18n="case1_t">Which region they live in</h3>
+        <p data-i18n="case1_p">IRPF is half regional. Madrid runs the lowest rates in Spain; Catalonia and Valencia can be 3–4 points higher at middle incomes — thousands of euros a year on the same invoice.</p>
+        <span class="tag flat" data-i18n="case1_tag">Varies</span>
+      </div>
+      <div class="case">
+        <div class="ico">🎉</div>
+        <h3 data-i18n="case2_t">Their first year (tarifa plana)</h3>
+        <p data-i18n="case2_p">A newly registered autónomo pays a flat €80/mo social security instead of the income-based band — often €1,500–3,000 saved in year one, extendable a second year if income stays low.</p>
+        <span class="tag up" data-i18n="case2_tag">Net ↑↑</span>
+      </div>
+      <div class="case">
+        <div class="ico">💼</div>
+        <h3 data-i18n="case3_t">Already employed elsewhere</h3>
+        <p data-i18n="case3_p">Pluriactividad — holding a salaried job alongside — can trigger a partial refund of the autónomo cuota, since they're already contributing through payroll.</p>
+        <span class="tag up" data-i18n="case3_tag">Net ↑</span>
+      </div>
+      <div class="case">
+        <div class="ico">🌍</div>
+        <h3 data-i18n="case4_t">You're a foreign (EU) client</h3>
+        <p data-i18n="case4_p">Invoices to a VAT-registered EU business use the reverse charge — no Spanish IVA is added. The 21% simply doesn't enter the picture, which surprises companies used to gross-of-VAT quotes.</p>
+        <span class="tag flat" data-i18n="case4_tag">IVA n/a</span>
+      </div>
+      <div class="case">
+        <div class="ico">🏝️</div>
+        <h3 data-i18n="case5_t">The Beckham regime</h3>
+        <p data-i18n="case5_p">A flat 24% for inbound workers up to €600k — but classic autónomos billing foreign clients generally don't qualify. It's built for employees relocating to Spain, not freelancers. Read the fine print.</p>
+        <span class="tag down" data-i18n="case5_tag">Rarely applies</span>
+      </div>
+      <div class="case">
+        <div class="ico">🏢</div>
+        <h3 data-i18n="case6_t">Crossing into SL territory</h3>
+        <p data-i18n="case6_p">Above roughly €60k profit, an SL can beat autónomo — corporate tax at 19–21% instead of top IRPF. But it adds an administrator salary, extra social security and accounting, so the switch only pays off with real scale.</p>
+        <span class="tag flat" data-i18n="case6_tag">Depends</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FAQ ================= -->
+<section class="faq" id="faq">
+  <div class="wrap" style="max-width:900px">
+    <h2>FAQ</h2>
+    <div class="faq-list" id="faq-list"></div>
+  </div>
+</section>
+
+<!-- ================= CTA ================= -->
+<section id="cta" style="padding-top:20px">
+  <div class="wrap">
+    <div class="cta">
+      <h2 data-i18n="cta_h2">Want the payouts handled too, not just explained?</h2>
+      <a class="btn btn-orange" href="#"><span data-i18n="cta_btn">Book a demo</span><i>→</i></a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="foot">
+    <div>
+      <div class="logo">Kle<b>o</b>s</div>
+      <p class="disc" data-i18n="footer_disc">This page is for general information only and does not constitute tax, legal or accounting advice. Figures reflect the 2026 Spanish rules (RETA bands, IRPF state scale, Madrid regional scale, corporate-tax micropyme rates) and simplified assumptions stated next to each calculation. Regional IRPF, social-security bands and corporate rates change — often yearly. Individual circumstances vary. Always consult a qualified gestor or asesor fiscal before making decisions.</p>
+    </div>
+    <div class="copy">© 2026 Kleos</div>
+  </div>
+</footer>
+
+<script>
+/* ============================================================
+   TAX CONFIG — Spain 2026.  Update these once a year.
+   Sources: AEAT (IRPF), TGSS/RDL 16-2025 (RETA bands),
+   regional scales (Madrid), IS micropyme scale 2026.
+   ============================================================ */
+const TAX = {
+  year: 2026,
+  minimoPersonal: 5550,       // personal allowance
+  gastosDificil: 2000,        // flat hard-to-justify deduction (cap)
+  retaComputableFactor: 0.93, // 7% general deduction for cuota base
+
+  // Monthly RETA cuota by monthly net income band (2026 minimum cuota)
+  retaBands: [
+    {upTo: 670,     cuota: 200},
+    {upTo: 900,     cuota: 220},
+    {upTo: 1166.70, cuota: 275},
+    {upTo: 1300,    cuota: 291},
+    {upTo: 1500,    cuota: 294},
+    {upTo: 1700,    cuota: 294},
+    {upTo: 1850,    cuota: 350},
+    {upTo: 2030,    cuota: 370},
+    {upTo: 2330,    cuota: 390},
+    {upTo: 2760,    cuota: 415},
+    {upTo: 3190,    cuota: 440},
+    {upTo: 3620,    cuota: 465},
+    {upTo: 4050,    cuota: 490},
+    {upTo: 6000,    cuota: 530},
+    {upTo: Infinity,cuota: 590}
+  ],
+  flatCuotaMonthly: 80,       // year-1 tarifa plana
+
+  // IRPF state scale (escala general estatal)
+  stateScale: [
+    {upTo: 12450,  rate: .095},
+    {upTo: 20200,  rate: .12},
+    {upTo: 35200,  rate: .15},
+    {upTo: 60000,  rate: .185},
+    {upTo: 300000, rate: .225},
+    {upTo: Infinity,rate:.245}
+  ],
+  // Regional (autonómica) scales
+  regionScale: {
+    general: [ // legal default — mirrors state, giving combined 19/24/30/37/45/47
+      {upTo: 12450,  rate: .095},
+      {upTo: 20200,  rate: .12},
+      {upTo: 35200,  rate: .15},
+      {upTo: 60000,  rate: .185},
+      {upTo: 300000, rate: .225},
+      {upTo: Infinity,rate:.225}
+    ],
+    madrid: [ // Comunidad de Madrid 2026 autonomous scale
+      {upTo: 13362.22, rate: .085},
+      {upTo: 19004.63, rate: .107},
+      {upTo: 35425.68, rate: .128},
+      {upTo: 57320.40, rate: .174},
+      {upTo: Infinity, rate: .205}
+    ]
+  },
+
+  // SL — corporate tax (micropyme progressive, 2026) + new-company flat
+  corpScale: [
+    {upTo: 50000,   rate: .19},
+    {upTo: Infinity,rate: .21}
+  ],
+  corpNewco: .15,
+  // Savings base scale for dividends (uniform across Spain)
+  savingsScale: [
+    {upTo: 6000,    rate: .19},
+    {upTo: 50000,   rate: .21},
+    {upTo: 200000,  rate: .23},
+    {upTo: 300000,  rate: .27},
+    {upTo: Infinity,rate: .28}
+  ]
+};
+
+/* ---- progressive tax helper ---- */
+function progressive(base, scale){
+  if(base <= 0) return 0;
+  let tax = 0, prev = 0;
+  for(const b of scale){
+    if(base > b.upTo){ tax += (b.upTo - prev) * b.rate; prev = b.upTo; }
+    else { tax += (base - prev) * b.rate; break; }
+  }
+  return tax;
+}
+function retaCuotaMonthly(monthlyNet){
+  for(const b of TAX.retaBands){ if(monthlyNet <= b.upTo) return b.cuota; }
+  return 590;
+}
+
+/* ---- core engine: given gross invoiced, return breakdown ---- */
+function compute(gross, expenses, regime, region, newco){
+  const netYield = Math.max(0, gross - expenses); // rendimiento neto (pre-cuota)
+
+  if(regime === 'sl'){
+    const profit = netYield;
+    const corpTax = newco ? profit * TAX.corpNewco : progressive(profit, TAX.corpScale);
+    const distributable = Math.max(0, profit - corpTax);
+    const divTax = progressive(distributable, TAX.savingsScale);
+    const net = Math.max(0, distributable - divTax);
+    return {
+      gross, expenses, netYield,
+      social: 0, socialLabel:'corp',
+      corpTax, divTax,
+      tax: divTax, // for bar coloring (orange = personal tax)
+      soc: corpTax, // deep-green segment = corporate tax
+      net,
+      regime
+    };
+  }
+
+  // autónomo (flat or general)
+  let annualCuota;
+  if(regime === 'flat'){
+    annualCuota = TAX.flatCuotaMonthly * 12;
+  } else {
+    const monthlyBase = (netYield * TAX.retaComputableFactor) / 12;
+    annualCuota = retaCuotaMonthly(monthlyBase) * 12;
+  }
+  const irpfBase = Math.max(0, netYield - annualCuota - TAX.gastosDificil);
+  const grossIrpf = progressive(irpfBase, TAX.stateScale) + progressive(irpfBase, TAX.regionScale[region]);
+  const minimoCredit = progressive(TAX.minimoPersonal, TAX.stateScale) + progressive(TAX.minimoPersonal, TAX.regionScale[region]);
+  const irpf = Math.max(0, grossIrpf - minimoCredit);
+  const net = Math.max(0, netYield - annualCuota - irpf);
+  return {
+    gross, expenses, netYield,
+    soc: annualCuota, tax: irpf, net, regime
+  };
+}
+
+/* ---- solve invoice for a target net (binary search) ---- */
+function solveForNet(target, expenses, regime, region, newco){
+  let lo = 0, hi = 2_000_000;
+  for(let i=0;i<60;i++){
+    const mid = (lo+hi)/2;
+    const r = compute(mid, expenses, regime, region, newco);
+    if(r.net < target) lo = mid; else hi = mid;
+  }
+  return (lo+hi)/2;
+}
+
+/* ============================================================
+   STATE + RENDER
+   ============================================================ */
+let LANG = 'en';
+let regime = 'flat';
+let region = 'general';
+let dir = 'gross';
+
+const euro = n => '€' + Math.round(n).toLocaleString('es-ES');
+const parseNum = s => parseFloat((s||'').toString().replace(/[^\d.]/g,'')) || 0;
+
+function setLang(l){ LANG=l; document.documentElement.lang=l;
+  document.getElementById('lang-en').classList.toggle('on', l==='en');
+  document.getElementById('lang-es').classList.toggle('on', l==='es');
+  applyI18n(); buildChecklist(); buildFaq(); calc();
+}
+function setRegime(r){ regime=r;
+  document.querySelectorAll('.regime').forEach(b=>b.classList.toggle('on', b.dataset.regime===r));
+  document.getElementById('toggle-new').classList.toggle('hidden', r!=='sl');
+  document.getElementById('region-wrap').classList.toggle('hidden', r==='sl');
+  document.getElementById('field-exp').classList.remove('hidden');
+  calc();
+}
+function setRegion(r){ region=r;
+  document.querySelectorAll('[data-region]').forEach(b=>b.classList.toggle('on', b.dataset.region===r));
+  calc();
+}
+function setDir(d){ dir=d;
+  document.querySelectorAll('[data-dir]').forEach(b=>b.classList.toggle('on', b.dataset.dir===d));
+  document.getElementById('field-gross').classList.toggle('hidden', d!=='gross');
+  document.getElementById('field-net').classList.toggle('hidden', d!=='net');
+  calc();
+}
+
+function calc(){
+  const expenses = parseNum(document.getElementById('exp').value);
+  const newco = document.getElementById('newco').checked;
+  let gross;
+  if(dir==='net'){
+    const target = parseNum(document.getElementById('net').value);
+    gross = solveForNet(target, expenses, regime, region, newco);
+    document.getElementById('hint-gross') && (document.getElementById('hint-gross').textContent='');
+  } else {
+    gross = parseNum(document.getElementById('gross').value);
+  }
+  const r = compute(gross, expenses, regime, region, newco);
+  render(r, gross);
+}
+
+function render(r, gross){
+  const T = I18N[LANG];
+  // bar segments over gross
+  const g = Math.max(gross,1);
+  const pNet = r.net/g*100, pSoc = r.soc/g*100, pTax = r.tax/g*100, pExp = r.expenses/g*100;
+  const bar = document.getElementById('bar');
+  bar.children[0].style.width = pNet+'%';
+  bar.children[1].style.width = pSoc+'%';
+  bar.children[2].style.width = pTax+'%';
+  bar.children[3].style.width = pExp+'%';
+
+  // legend + lines depend on regime
+  const legend = document.getElementById('legend');
+  const lines = document.getElementById('lines');
+  let socLabel, taxLabel;
+  if(r.regime==='sl'){ socLabel=T.l_corp; taxLabel=T.l_div; }
+  else { socLabel=T.l_soc; taxLabel=T.l_irpf; }
+
+  legend.innerHTML =
+    `<span><i class="dot" style="background:var(--green)"></i>${T.l_net}</span>`+
+    `<span><i class="dot" style="background:var(--green-deep)"></i>${socLabel}</span>`+
+    `<span><i class="dot" style="background:var(--orange)"></i>${taxLabel}</span>`+
+    `<span><i class="dot" style="background:var(--ink)"></i>${T.l_exp}</span>`;
+
+  let rows = '';
+  rows += row(T.r_gross, euro(gross), false);
+  rows += row(T.r_exp, '– '+euro(r.expenses), true);
+  if(r.regime==='sl'){
+    rows += row(T.r_profit, euro(r.netYield), false);
+    rows += row(T.r_corp, '– '+euro(r.corpTax), true);
+    rows += row(T.r_dividend, '– '+euro(r.divTax), true);
+  } else {
+    rows += row(T.r_netyield, euro(r.netYield), false);
+    rows += row(T.r_cuota, '– '+euro(r.soc), true);
+    rows += row(T.r_irpf, '– '+euro(r.tax), true);
+  }
+  rows += `<div class="line net"><span class="ll">${T.r_net}</span><span class="lv">${euro(r.net)}</span></div>`;
+  lines.innerHTML = rows;
+
+  document.getElementById('permonth').textContent = euro(r.net/12);
+  const eff = gross>0 ? ((gross - r.net)/gross*100) : 0;
+  document.getElementById('effrate').textContent = eff.toFixed(1)+'%';
+
+  document.getElementById('assume').textContent = T['assume_'+r.regime];
+}
+function row(label, val, sub){
+  return `<div class="line ${sub?'sub':''}"><span class="ll">${label}</span><span class="lv">${val}</span></div>`;
+}
+
+/* ---- checklist (falso autónomo indicators) ---- */
+let checkState = [];
+function buildChecklist(){
+  const T = I18N[LANG];
+  const wrap = document.getElementById('checks');
+  const tick = '<svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>';
+  wrap.innerHTML = T.checks.map((c,i)=>
+    `<div class="check ${checkState[i]?'on':''}" onclick="toggleCheck(${i})">
+       <div class="box">${tick}</div><div class="txt">${c}</div></div>`).join('');
+  updateVerdict();
+}
+function toggleCheck(i){ checkState[i]=!checkState[i]; buildChecklist(); }
+function updateVerdict(){
+  const T = I18N[LANG];
+  const n = checkState.filter(Boolean).length;
+  const v = document.getElementById('verdict');
+  v.className = 'verdict';
+  if(n===0){ v.textContent = T.mis_v0; }
+  else if(n<=2){ v.classList.add('safe'); v.textContent = T.mis_vsafe.replace('{n}',n); }
+  else if(n<=4){ v.classList.add('warn'); v.textContent = T.mis_vwarn.replace('{n}',n); }
+  else { v.classList.add('danger'); v.textContent = T.mis_vdanger.replace('{n}',n); }
+}
+
+/* ---- FAQ ---- */
+function buildFaq(){
+  const T = I18N[LANG];
+  document.getElementById('faq-list').innerHTML = T.faq.map((f,i)=>
+    `<div class="qa" id="qa${i}">
+       <button onclick="toggleQa(${i})">${f.q}<span class="plus">+</span></button>
+       <div class="ans"><p>${f.a}</p></div>
+     </div>`).join('');
+}
+function toggleQa(i){
+  const el = document.getElementById('qa'+i);
+  const ans = el.querySelector('.ans');
+  const open = el.classList.toggle('open');
+  ans.style.maxHeight = open ? ans.scrollHeight+'px' : 0;
+}
+
+/* ---- i18n apply ---- */
+function applyI18n(){
+  const T = I18N[LANG];
+  document.querySelectorAll('[data-i18n]').forEach(el=>{
+    const k = el.dataset.i18n; if(T[k]!==undefined) el.textContent = T[k];
+  });
+}
+
+['gross','net','exp'].forEach(id=>{
+  document.addEventListener('input', e=>{ if(e.target.id===id) calc(); });
+});
+
+/* ============================================================
+   I18N DICTIONARY
+   ============================================================ */
+const I18N = {
+ en: {
+  nav_calc:"Calculator", nav_how:"How it works", nav_class:"Classification",
+  nav_cases:"Special cases", nav_faq:"FAQ", nav_demo:"Book a demo",
+  hero_eyebrow:"Spain · Contractor taxation guide · 2026",
+  hero_h1a:"Hiring in Spain?", hero_h1b:"Here's where the money ", hero_h1c:"actually goes.",
+  hero_lead:"Your contractor pays their own taxes — but the rate you agree decides what lands in their pocket. This page shows both of you the full math: every charge, every band, every case that shifts the final number.",
+  hero_btn1:"Run the numbers", hero_btn2:"Learn the system",
+  fact1:"IRPF income tax — progressive, state plus your region",
+  fact2:"monthly social security — first-year flat rate up to the top band",
+  fact3:"IVA — but reverse-charged on most EU B2B invoices",
+  fact4:"annual filing deadline (Declaración de la Renta)",
+  calc_h2:"Gross to net. No mystery left.",
+  calc_sub:"Pick the contractor's setup, type the yearly amount you'll pay them, and watch every euro get accounted for.",
+  reg_flat_t:"Autónomo · year 1", reg_flat_d:"Flat €80/mo social security",
+  reg_gen_t:"Autónomo · established", reg_gen_d:"Income-based cuota bands",
+  reg_sl_t:"SL company", reg_sl_d:"Corporate tax + dividends",
+  dir_gross:"I know the invoice", dir_net:"I want a target net",
+  in_gross:"Annual amount you'll invoice / pay (€)",
+  in_net:"Target annual net for the contractor (€)",
+  in_net_hint:"We'll solve for the invoice amount that leaves this in their pocket.",
+  in_exp:"Deductible business expenses (€ / year)",
+  in_exp_hint:"Software, gestor, insurance, workspace — must be genuine and invoiced.",
+  in_region:"Region (sets IRPF):", region_general:"Spain (standard)",
+  tog_new_t:"New company (first two profitable years)", tog_new_d:"Corporate tax drops to a flat 15%.",
+  per_month:"net per month", eff_rate:"effective rate",
+  l_net:"Net in pocket", l_soc:"Social security", l_irpf:"IRPF", l_exp:"Expenses",
+  l_corp:"Corporate tax", l_div:"Dividend tax",
+  r_gross:"Amount invoiced", r_exp:"Deductible expenses", r_netyield:"Net yield",
+  r_cuota:"Social security (cuota)", r_irpf:"IRPF (after allowances)", r_net:"Net in pocket / year",
+  r_profit:"Company profit", r_corp:"Corporate tax", r_dividend:"Dividend tax", r_div:"Dividend tax",
+  assume_flat:"First-year autónomo: flat €80/mo cuota. IRPF uses the state scale plus the chosen regional scale, less the €5,550 personal allowance and €2,000 flat expense deduction. Excludes MEI (~0.9%). Not tax advice.",
+  assume_general:"Established autónomo: cuota from the 2026 income bands (net × 0.93 ÷ 12). IRPF uses the state plus chosen regional scale, less €5,550 personal allowance and €2,000 flat deduction. Excludes MEI (~0.9%). Not tax advice.",
+  assume_sl:"SL (simplified): corporate tax on profit, then dividend tax on what's distributed. Excludes the mandatory administrator salary, the administrator's social security (~€330+/mo) and accounting fees — real SL costs are higher. Not tax advice.",
+  how_eyebrow:"The system, in three charges",
+  how_h2:"Three charges. One isn't really yours.",
+  how_sub:"Two of these come out of the contractor's earnings. The third — IVA — usually just passes through, especially when the client is a foreign business.",
+  how_irpf_t:"IRPF — income tax",
+  how_irpf_p:"Progressive tax on net profit after expenses, allowances and the social-security cuota. Half is set by the state, half by the region — so the same income nets differently in Madrid than in Catalonia.",
+  how_irpf_r1:"First €12,450", how_irpf_r2:"€35,200–€60,000", how_irpf_r3:"Personal allowance",
+  how_soc_t:"Seguridad Social — the cuota",
+  how_soc_p:"A monthly social-security contribution, not a tax. Since 2023 it scales with real net income across 15 bands. New autónomos pay a flat €80/mo for the first year. It's fully deductible before IRPF.",
+  how_soc_r1:"First year (flat)", how_soc_r2:"Net under €670/mo", how_soc_r3:"Net over €6,000/mo",
+  how_iva_t:"IVA — mostly pass-through",
+  how_iva_p:"Spain has no small-business exemption: autónomos charge IVA from the first invoice. But on B2B invoices to VAT-registered EU businesses the reverse charge applies — no Spanish IVA is added, so it isn't a real cost to either side.",
+  how_iva_r1:"Standard rate", how_iva_r2:"EU B2B client", how_iva_r2v:"Reverse charge", how_iva_r3:"Filed via",
+  tl_title:"A year in the life of a Spanish contractor's taxes",
+  tl1_when:"Day 1", tl1_t:"Register: RETA + Censo (Modelo 036/037)",
+  tl1_p:"Sign up for social security and register the activity with the tax office. Pick a CNAE/IAE code. This can be done online in a few days.",
+  tl2_when:"Every quarter", tl2_t:"File Modelo 303 (IVA) and Modelo 130 (IRPF advance)",
+  tl2_p:"VAT return plus a 20% income-tax prepayment on profit. If clients withhold IRPF at source (retención), Modelo 130 is skipped and the retención covers it.",
+  tl3_when:"By 30 Jun", tl3_t:"File the annual Declaración de la Renta",
+  tl3_p:"The full income-tax return for the previous year reconciles everything paid across the quarters — either a top-up or a refund.",
+  tl4_when:"Year-end", tl4_t:"Social security regularises the cuota",
+  tl4_p:"The TGSS compares the cuota paid against real declared income and adjusts — charging the difference or issuing a refund if the band was wrong.",
+  mis_h2:"One contract away from being an employee.",
+  mis_sub:"Spain doesn't read the contract — it reads reality. If the working relationship shows dependencia (taking orders) and ajenidad (bearing none of the risk), the Inspección de Trabajo can rule it a disguised employment — a \"falso autónomo\" — with back-contributions, penalties and reclassification landing on the company. There's no clean 4-of-7 test: courts weigh all the signals together.",
+  mis_ci:"Check every statement that's true for the arrangement. The more that apply, the more it looks like employment — not a genuine contractor.",
+  checks:[
+    "The person works to a set schedule or must be available fixed hours",
+    "They take direct orders on how, when and where the work is done",
+    "They work mainly from premises or systems the company provides",
+    "They use the company's tools, laptop or corporate email",
+    "They're paid a fixed, salary-like amount every month",
+    "They depend economically on this one client for most of their income",
+    "They're embedded in the company's teams and reporting lines",
+    "They bear none of the business risk and have no other clients"
+  ],
+  mis_v0:"Tick the boxes above to gauge the reclassification risk.",
+  mis_vsafe:"{n} signals ticked — looks like a genuine contractor relationship, but keep the evidence.",
+  mis_vwarn:"{n} signals ticked — some employment markers. Worth a legal review before signing.",
+  mis_vdanger:"{n} signals ticked — this reads as disguised employment. High reclassification risk.",
+  cases_eyebrow:"Same rate, different net",
+  cases_h2:"Cases that change the final number",
+  cases_sub:"Two contractors on the same headline rate can take home very different amounts. These are the situations worth knowing before you agree a price.",
+  case1_t:"Which region they live in", case1_p:"IRPF is half regional. Madrid runs the lowest rates in Spain; Catalonia and Valencia can be 3–4 points higher at middle incomes — thousands of euros a year on the same invoice.", case1_tag:"Varies",
+  case2_t:"Their first year (tarifa plana)", case2_p:"A newly registered autónomo pays a flat €80/mo social security instead of the income-based band — often €1,500–3,000 saved in year one, extendable a second year if income stays low.", case2_tag:"Net ↑↑",
+  case3_t:"Already employed elsewhere", case3_p:"Pluriactividad — holding a salaried job alongside — can trigger a partial refund of the autónomo cuota, since they're already contributing through payroll.", case3_tag:"Net ↑",
+  case4_t:"You're a foreign (EU) client", case4_p:"Invoices to a VAT-registered EU business use the reverse charge — no Spanish IVA is added. The 21% simply doesn't enter the picture, which surprises companies used to gross-of-VAT quotes.", case4_tag:"IVA n/a",
+  case5_t:"The Beckham regime", case5_p:"A flat 24% for inbound workers up to €600k — but classic autónomos billing foreign clients generally don't qualify. It's built for employees relocating to Spain, not freelancers. Read the fine print.", case5_tag:"Rarely applies",
+  case6_t:"Crossing into SL territory", case6_p:"Above roughly €60k profit, an SL can beat autónomo — corporate tax at 19–21% instead of top IRPF. But it adds an administrator salary, extra social security and accounting, so the switch only pays off with real scale.", case6_tag:"Depends",
+  cta_h2:"Want the payouts handled too, not just explained?", cta_btn:"Book a demo",
+  footer_disc:"This page is for general information only and does not constitute tax, legal or accounting advice. Figures reflect the 2026 Spanish rules (RETA bands, IRPF state scale, Madrid regional scale, corporate-tax micropyme rates) and simplified assumptions stated next to each calculation. Regional IRPF, social-security bands and corporate rates change — often yearly. Individual circumstances vary. Always consult a qualified gestor or asesor fiscal before making decisions.",
+  faq:[
+    {q:"Who actually pays the taxes — the company or the contractor?",a:"The contractor. As an autónomo they invoice you, then handle their own IRPF, social-security cuota and IVA filings. Your obligation is to pay the agreed invoice — but the rate you agree determines what's left after their taxes, which is why this page shows both sides the math."},
+    {q:"What's the real difference between an autónomo and an SL?",a:"An autónomo is an individual freelancer — simplest to set up, taxed through personal IRPF, with the monthly cuota. An SL is a limited company — the profit is taxed by corporate tax (19–21% for small firms), and the owner is then taxed again on any salary or dividends they draw. SL only tends to win above roughly €60k of profit, and it carries real extra cost: an administrator salary, the administrator's own social security, and accounting."},
+    {q:"Does the hiring company have any Spanish filing obligations?",a:"For a genuine contractor invoicing from Spain, generally no Spanish payroll or withholding obligation falls on a foreign company — the autónomo self-manages. The real exposure is misclassification: if the relationship is actually employment, the company can be pursued for back social-security contributions and penalties. That's the risk the classification section is about."},
+    {q:"What happens if a contractor is reclassified as an employee (falso autónomo)?",a:"The Inspección de Trabajo can require the relationship to be re-registered as employment, with back-payment of the employer's social-security contributions (plus surcharges), fines under the LISOS, and recognition of employment rights. Spain applies the 'primacía de la realidad' — the facts of the working relationship override the label on the contract."},
+    {q:"Is the 'income norm' or Beckham regime a shortcut to lower tax?",a:"The Beckham regime taxes qualifying inbound workers at a flat 24% up to €600k, which can be very favourable. But it's designed for people relocating to Spain under an employment relationship — a classic autónomo billing foreign clients usually doesn't qualify. Treat it as a specialist case to check with an adviser, not a default."},
+    {q:"How current are the numbers on this page?",a:"They reflect the 2026 Spanish parameters: the RETA cuota bands (frozen at 2025 levels bar the MEI move to 0.9%), the IRPF state scale plus the Madrid regional scale, and the corporate-tax micropyme rates. Spanish fiscal rules shift almost yearly, and regional IRPF varies by community — so treat the output as an informed estimate and confirm with a gestor."}
+  ]
+ },
+ es: {
+  nav_calc:"Calculadora", nav_how:"Cómo funciona", nav_class:"Clasificación",
+  nav_cases:"Casos especiales", nav_faq:"Preguntas", nav_demo:"Pedir demo",
+  hero_eyebrow:"España · Guía de fiscalidad del contratista · 2026",
+  hero_h1a:"¿Contratas en España?", hero_h1b:"Aquí ves a dónde ", hero_h1c:"va el dinero.",
+  hero_lead:"Tu contratista paga sus propios impuestos, pero la tarifa que acordáis decide cuánto le queda en el bolsillo. Esta página os enseña a ambos las cuentas completas: cada cargo, cada tramo y cada caso que cambia la cifra final.",
+  hero_btn1:"Calcular ahora", hero_btn2:"Entender el sistema",
+  fact1:"IRPF — progresivo, tramo estatal más el de tu comunidad",
+  fact2:"seguridad social mensual — tarifa plana el primer año hasta el tramo máximo",
+  fact3:"IVA — pero con inversión del sujeto pasivo en la mayoría de facturas B2B de la UE",
+  fact4:"plazo anual de presentación (Declaración de la Renta)",
+  calc_h2:"De bruto a neto. Sin misterio.",
+  calc_sub:"Elige el régimen del contratista, escribe el importe anual que le pagarás y mira cómo se justifica cada euro.",
+  reg_flat_t:"Autónomo · año 1", reg_flat_d:"Cuota plana de 80 €/mes",
+  reg_gen_t:"Autónomo · establecido", reg_gen_d:"Cuota por tramos de ingresos",
+  reg_sl_t:"Sociedad (SL)", reg_sl_d:"Impuesto de sociedades + dividendos",
+  dir_gross:"Sé la factura", dir_net:"Quiero un neto objetivo",
+  in_gross:"Importe anual que facturarás / pagarás (€)",
+  in_net:"Neto anual objetivo para el contratista (€)",
+  in_net_hint:"Calcularemos el importe a facturar que deja ese neto en su bolsillo.",
+  in_exp:"Gastos deducibles del negocio (€ / año)",
+  in_exp_hint:"Software, gestor, seguro, espacio de trabajo — reales y facturados.",
+  in_region:"Comunidad (fija el IRPF):", region_general:"España (estándar)",
+  tog_new_t:"Empresa de nueva creación (dos primeros años con beneficio)", tog_new_d:"El impuesto de sociedades baja a un 15% fijo.",
+  per_month:"neto al mes", eff_rate:"tipo efectivo",
+  l_net:"Neto en bolsillo", l_soc:"Seguridad social", l_irpf:"IRPF", l_exp:"Gastos",
+  l_corp:"Sociedades", l_div:"Dividendos",
+  r_gross:"Importe facturado", r_exp:"Gastos deducibles", r_netyield:"Rendimiento neto",
+  r_cuota:"Seguridad social (cuota)", r_irpf:"IRPF (tras mínimos)", r_net:"Neto en bolsillo / año",
+  r_profit:"Beneficio de la sociedad", r_corp:"Impuesto de sociedades", r_dividend:"Impuesto sobre dividendos", r_div:"Dividendos",
+  assume_flat:"Autónomo primer año: cuota plana de 80 €/mes. El IRPF aplica la escala estatal más la autonómica elegida, menos el mínimo personal de 5.550 € y la deducción de 2.000 €. Excluye MEI (~0,9%). No es asesoramiento fiscal.",
+  assume_general:"Autónomo establecido: cuota según los tramos de ingresos 2026 (neto × 0,93 ÷ 12). El IRPF aplica la escala estatal más la autonómica elegida, menos el mínimo de 5.550 € y la deducción de 2.000 €. Excluye MEI (~0,9%). No es asesoramiento fiscal.",
+  assume_sl:"SL (simplificado): impuesto de sociedades sobre el beneficio y después impuesto sobre los dividendos repartidos. Excluye la nómina obligatoria del administrador, su seguridad social (~330 €+/mes) y la gestoría — el coste real de una SL es mayor. No es asesoramiento fiscal.",
+  how_eyebrow:"El sistema, en tres cargos",
+  how_h2:"Tres cargos. Uno no es del todo tuyo.",
+  how_sub:"Dos salen de lo que gana el contratista. El tercero — el IVA — normalmente solo pasa de largo, sobre todo cuando el cliente es una empresa extranjera.",
+  how_irpf_t:"IRPF — impuesto sobre la renta",
+  how_irpf_p:"Impuesto progresivo sobre el beneficio neto tras gastos, mínimos y la cuota de autónomos. La mitad la fija el Estado y la mitad la comunidad — por eso el mismo ingreso deja distinto neto en Madrid que en Cataluña.",
+  how_irpf_r1:"Primeros 12.450 €", how_irpf_r2:"35.200 €–60.000 €", how_irpf_r3:"Mínimo personal",
+  how_soc_t:"Seguridad Social — la cuota",
+  how_soc_p:"Una cotización mensual a la seguridad social, no un impuesto. Desde 2023 escala con el rendimiento neto real en 15 tramos. Los nuevos autónomos pagan 80 €/mes fijos el primer año. Es deducible antes del IRPF.",
+  how_soc_r1:"Primer año (plana)", how_soc_r2:"Neto bajo 670 €/mes", how_soc_r3:"Neto sobre 6.000 €/mes",
+  how_iva_t:"IVA — casi siempre de paso",
+  how_iva_p:"España no tiene exención para pequeños negocios: el autónomo repercute IVA desde la primera factura. Pero en facturas B2B a empresas de la UE con IVA intracomunitario se aplica la inversión del sujeto pasivo — no se añade IVA español, así que no es un coste real para ninguna parte.",
+  how_iva_r1:"Tipo general", how_iva_r2:"Cliente B2B UE", how_iva_r2v:"Inversión sujeto pasivo", how_iva_r3:"Se presenta con",
+  tl_title:"Un año en la fiscalidad de un contratista español",
+  tl1_when:"Día 1", tl1_t:"Alta: RETA + Censo (Modelo 036/037)",
+  tl1_p:"Alta en la seguridad social y alta censal de la actividad en Hacienda. Se elige un epígrafe CNAE/IAE. Se hace online en pocos días.",
+  tl2_when:"Cada trimestre", tl2_t:"Presentar Modelo 303 (IVA) y Modelo 130 (pago de IRPF)",
+  tl2_p:"Declaración de IVA y un pago fraccionado del 20% del beneficio. Si los clientes practican retención de IRPF, se omite el Modelo 130 y la retención lo cubre.",
+  tl3_when:"Hasta 30 jun", tl3_t:"Presentar la Declaración de la Renta anual",
+  tl3_p:"La declaración anual del año anterior regulariza todo lo pagado durante los trimestres — a ingresar o a devolver.",
+  tl4_when:"Fin de año", tl4_t:"La seguridad social regulariza la cuota",
+  tl4_p:"La TGSS compara la cuota pagada con el ingreso real declarado y ajusta — cobrando la diferencia o devolviendo si el tramo no era el correcto.",
+  mis_h2:"A un contrato de ser un empleado.",
+  mis_sub:"España no lee el contrato — lee la realidad. Si la relación muestra dependencia (recibir órdenes) y ajenidad (no asumir el riesgo), la Inspección de Trabajo puede declararla una relación laboral encubierta — un \"falso autónomo\" — con cotizaciones atrasadas, sanciones y reclasificación que recaen en la empresa. No hay un test limpio de 4 de 7: los tribunales valoran todos los indicios en conjunto.",
+  mis_ci:"Marca cada afirmación que sea cierta en la relación. Cuantas más apliquen, más se parece a una relación laboral — no a un contratista real.",
+  checks:[
+    "Trabaja con un horario fijo o debe estar disponible en horas concretas",
+    "Recibe órdenes directas sobre cómo, cuándo y dónde hacer el trabajo",
+    "Trabaja sobre todo desde instalaciones o sistemas que aporta la empresa",
+    "Usa las herramientas, el portátil o el correo corporativo de la empresa",
+    "Cobra un importe fijo, tipo salario, todos los meses",
+    "Depende económicamente de este único cliente para casi todo su ingreso",
+    "Está integrado en los equipos y líneas de reporte de la empresa",
+    "No asume ningún riesgo del negocio y no tiene otros clientes"
+  ],
+  mis_v0:"Marca las casillas para valorar el riesgo de reclasificación.",
+  mis_vsafe:"{n} indicios marcados — parece una relación de contratista real, pero conserva las pruebas.",
+  mis_vwarn:"{n} indicios marcados — hay señales de laboralidad. Conviene una revisión legal antes de firmar.",
+  mis_vdanger:"{n} indicios marcados — esto parece una relación laboral encubierta. Alto riesgo de reclasificación.",
+  cases_eyebrow:"Misma tarifa, distinto neto",
+  cases_h2:"Casos que cambian la cifra final",
+  cases_sub:"Dos contratistas con la misma tarifa nominal pueden llevarse importes muy distintos. Estas son las situaciones que conviene conocer antes de acordar un precio.",
+  case1_t:"En qué comunidad vive", case1_p:"La mitad del IRPF es autonómico. Madrid tiene los tipos más bajos de España; Cataluña y Valencia pueden ser 3–4 puntos más altos en rentas medias — miles de euros al año con la misma factura.", case1_tag:"Varía",
+  case2_t:"Su primer año (tarifa plana)", case2_p:"Un autónomo recién dado de alta paga 80 €/mes fijos de seguridad social en vez del tramo por ingresos — a menudo 1.500–3.000 € de ahorro el primer año, ampliable a un segundo si el ingreso sigue bajo.", case2_tag:"Neto ↑↑",
+  case3_t:"Ya tiene un empleo", case3_p:"Pluriactividad — compaginar un empleo por cuenta ajena — puede dar derecho a una devolución parcial de la cuota de autónomos, porque ya cotiza por nómina.", case3_tag:"Neto ↑",
+  case4_t:"Eres un cliente extranjero (UE)", case4_p:"Las facturas a una empresa de la UE con IVA intracomunitario usan la inversión del sujeto pasivo — no se añade IVA español. El 21% simplemente no aparece, algo que sorprende a empresas acostumbradas a presupuestos con IVA.", case4_tag:"Sin IVA",
+  case5_t:"El régimen Beckham", case5_p:"Un 24% fijo para trabajadores desplazados hasta 600 k € — pero el autónomo clásico que factura a clientes extranjeros normalmente no cumple los requisitos. Está pensado para empleados que se trasladan a España, no para freelancers. Lee la letra pequeña.", case5_tag:"Rara vez aplica",
+  case6_t:"Entrar en el terreno de la SL", case6_p:"Por encima de unos 60 k € de beneficio, una SL puede batir al autónomo — sociedades al 19–21% en vez del IRPF máximo. Pero añade nómina de administrador, seguridad social extra y contabilidad, así que solo compensa con escala real.", case6_tag:"Depende",
+  cta_h2:"¿Quieres también gestionar los pagos, no solo entenderlos?", cta_btn:"Pedir demo",
+  footer_disc:"Esta página es solo información general y no constituye asesoramiento fiscal, legal ni contable. Las cifras reflejan las reglas españolas de 2026 (tramos del RETA, escala estatal del IRPF, escala autonómica de Madrid, tipos de sociedades para micropymes) y supuestos simplificados indicados junto a cada cálculo. El IRPF autonómico, los tramos de cotización y los tipos de sociedades cambian — a menudo cada año. Cada situación es distinta. Consulta siempre a un gestor o asesor fiscal cualificado antes de decidir.",
+  faq:[
+    {q:"¿Quién paga los impuestos — la empresa o el contratista?",a:"El contratista. Como autónomo te factura y gestiona por su cuenta el IRPF, la cuota de seguridad social y el IVA. Tu obligación es pagar la factura acordada — pero la tarifa que acordáis determina lo que le queda tras impuestos, y por eso esta página os enseña las cuentas a ambos."},
+    {q:"¿Cuál es la diferencia real entre un autónomo y una SL?",a:"Un autónomo es una persona física — lo más sencillo de constituir, tributa por IRPF personal y paga la cuota mensual. Una SL es una sociedad limitada — el beneficio tributa por el impuesto de sociedades (19–21% para empresas pequeñas) y el socio vuelve a tributar por la nómina o los dividendos que cobre. La SL solo suele compensar por encima de unos 60 k € de beneficio y trae coste extra real: nómina de administrador, su propia seguridad social y contabilidad."},
+    {q:"¿Tiene la empresa contratante obligaciones fiscales en España?",a:"Para un contratista real que factura desde España, por lo general una empresa extranjera no tiene obligación de nómina ni retención en España — el autónomo se autogestiona. El riesgo real es la mala clasificación: si la relación es en realidad laboral, se puede reclamar a la empresa las cotizaciones atrasadas y sanciones. De eso trata la sección de clasificación."},
+    {q:"¿Qué pasa si se reclasifica a un contratista como empleado (falso autónomo)?",a:"La Inspección de Trabajo puede exigir que la relación se registre como laboral, con pago atrasado de las cotizaciones del empresario (más recargos), multas conforme a la LISOS y reconocimiento de derechos laborales. En España rige la 'primacía de la realidad' — los hechos de la relación prevalecen sobre la etiqueta del contrato."},
+    {q:"¿Es el régimen Beckham un atajo para pagar menos?",a:"El régimen Beckham grava a trabajadores desplazados que cumplen los requisitos con un 24% fijo hasta 600 k €, lo que puede ser muy favorable. Pero está diseñado para personas que se trasladan a España bajo una relación laboral — un autónomo clásico que factura a clientes extranjeros normalmente no cumple. Trátalo como un caso especial a revisar con un asesor, no como opción por defecto."},
+    {q:"¿Cómo de actuales son las cifras de esta página?",a:"Reflejan los parámetros españoles de 2026: los tramos de cuota del RETA (congelados a niveles de 2025 salvo el MEI, que sube al 0,9%), la escala estatal del IRPF más la escala autonómica de Madrid, y los tipos de sociedades para micropymes. Las reglas fiscales españolas cambian casi cada año y el IRPF autonómico varía por comunidad — así que toma el resultado como una estimación informada y confírmalo con un gestor."}
+  ]
+ }
+};
+
+/* ---- init ---- */
+applyI18n();
+buildChecklist();
+buildFaq();
+setRegime('flat');
+calc();
+</script>
+</body>
+</html>
